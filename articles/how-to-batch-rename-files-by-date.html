@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Batch Rename Files by Date on Windows</title>
+<meta name="description" content="Learn a safe Windows workflow for batch renaming files by date while keeping original files unchanged.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:34px 20px}.top{background:#fff;border-bottom:1px solid #dfe4ea}
+a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}
+.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">Windows file renaming guide</p>
+<h1>How to Batch Rename Files by Date on Windows</h1>
+<p>If a folder contains many receipts, invoices, photos, or exports, renaming them one by one is slow and error-prone. A safer approach is to create renamed copies first, then review the result.</p>
+<h2>Recommended Workflow</h2>
+<ol>
+<li>Create a backup or use copy mode.</li>
+<li>Choose a consistent date format such as <code>YYYY-MM-DD</code>.</li>
+<li>Add an optional label such as <code>receipts</code>, <code>invoices</code>, or <code>products</code>.</li>
+<li>Add a sequence number so files sort predictably.</li>
+<li>Review the renamed folder and the rename log.</li>
+</ol>
+<h2>Example</h2>
+<p>Before:</p>
+<ul>
+<li><code>invoice_20260105.pdf</code></li>
+<li><code>receipt-20260106.png</code></li>
+<li><code>memo 2026-01-07.txt</code></li>
+</ul>
+<p>After:</p>
+<ul>
+<li><code>2026-01-05_receipts_001_invoice.pdf</code></li>
+<li><code>2026-01-06_receipts_002_receipt.png</code></li>
+<li><code>2026-01-07_receipts_003_memo.txt</code></li>
+</ul>
+<h2>Why a CSV Log Helps</h2>
+<p>A rename log shows the original name, the new name, and whether each file was copied or skipped. This is important when files have similar names or when some files have no date.</p>
+<div class="card">
+<h2>Beginner-Friendly Option</h2>
+<p>Batch File Renamer is a local Windows app that uses copy mode by default and creates a <code>rename_log.csv</code> file after each run.</p>
+<a class="btn" href="https://payhip.com/b/lz5Lm">View on Payhip</a>
+</div>
+<div class="footer">Do not delete original files until you have reviewed the renamed copies.</div>
+</main>
+</body>
+</html>

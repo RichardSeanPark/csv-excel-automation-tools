@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batch File Renamer for Receipts, Invoices, and Product Images</title>
+<meta name="description" content="A simple guide to batch renaming receipt, invoice, product image, and downloaded files into clean date-based names on Windows.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:34px 20px}.top{background:#fff;border-bottom:1px solid #dfe4ea}
+a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}
+.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">File organization guide</p>
+<h1>Batch File Renamer for Receipts, Invoices, and Product Images</h1>
+<p>Messy file names create small delays every time you search, upload, or send documents. A simple date-based naming rule can make folders easier to scan without needing a large document management system.</p>
+<h2>Good Naming Pattern</h2>
+<p>A practical pattern is:</p>
+<p><code>YYYY-MM-DD_label_001_original-name.ext</code></p>
+<p>Examples:</p>
+<ul>
+<li><code>2026-01-05_receipts_001_invoice.pdf</code></li>
+<li><code>2026-01-06_products_002_shirt-photo.jpg</code></li>
+<li><code>2026-01-07_invoices_003_vendor-bill.pdf</code></li>
+</ul>
+<h2>Why Copy Mode Is Safer</h2>
+<p>Beginners should rename copied files first. If the output looks wrong, the original folder is still unchanged. After reviewing the results and log file, the renamed copies can be moved into the final folder.</p>
+<h2>When This Works Best</h2>
+<ul>
+<li>The date is already in the file name.</li>
+<li>The file modified date can be used as a fallback.</li>
+<li>You need a clean folder for receipts, invoices, product images, or downloaded files.</li>
+</ul>
+<h2>When You Need Something Else</h2>
+<p>This type of tool does not read scanned document contents, identify products from photos, or decide what a document means. If you need that, you need OCR, image recognition, or a custom workflow.</p>
+<div class="card">
+<h2>Local Windows App</h2>
+<p>Batch File Renamer is a small Windows app that copies files into clean date-based names and creates a CSV rename log. No command line and no upload.</p>
+<a class="btn" href="https://bumblebee101.gumroad.com/l/batch-file-renamer">View on Gumroad</a>
+</div>
+<div class="footer">This guide is about file organization only. Always review renamed files before deleting or replacing originals.</div>
+</main>
+</body>
+</html>
