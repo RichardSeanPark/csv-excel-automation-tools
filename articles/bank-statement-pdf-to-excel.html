@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Convert a Text-Based Bank Statement PDF to Excel</title>
+<meta name="description" content="Learn when a bank statement PDF can be converted to Excel, what text-based PDFs mean, and when OCR or a custom parser is needed.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:34px 20px}
+.top{background:#fff;border-bottom:1px solid #dfe4ea}
+a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">Bank statement conversion guide</p>
+<h1>How to Convert a Text-Based Bank Statement PDF to Excel</h1>
+<p>Many bank statement PDFs can be converted to Excel if the PDF contains selectable text. A text-based PDF lets you select and copy transaction rows. That is different from a scanned PDF or photo, where the page is only an image.</p>
+<h2>Quick Check</h2>
+<p>Open the PDF and try to select a transaction row with your mouse. If you can copy readable text into Notepad, the file is more likely to work with a local converter.</p>
+<h2>Safe Workflow</h2>
+<ol>
+<li>Extract the statement text locally.</li>
+<li>Parse each transaction into date, description, money out, money in, amount, and balance.</li>
+<li>Export Excel and CSV.</li>
+<li>Keep a rejected-lines file for manual review.</li>
+</ol>
+<h2>Hard Cases</h2>
+<p>Scanned PDFs, password-protected PDFs, and statement layouts where one transaction spans several lines usually need OCR or a custom parser.</p>
+<div class="card">
+<h2>Local Windows Converter</h2>
+<p>Bank Statement PDF to Excel is a local Windows app for text-based statement files. No bank login, no upload, and no command line.</p>
+<a class="btn" href="https://bumblebee101.gumroad.com/l/bank-statement-pdf-to-excel">View on Gumroad</a>
+</div>
+<div class="footer">This article is about file conversion only. It is not accounting, tax, or financial advice.</div>
+</main>
+</body>
+</html>

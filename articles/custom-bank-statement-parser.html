@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When You Need a Custom Bank Statement Parser</title>
+<meta name="description" content="Learn when a standard statement converter is enough and when a custom parser is needed for your specific bank or card statement format.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}.wrap{max-width:860px;margin:0 auto;padding:34px 20px}.top{background:#fff;border-bottom:1px solid #dfe4ea}a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">Custom parser guide</p>
+<h1>When You Need a Custom Bank Statement Parser</h1>
+<p>A standard converter works best when transaction rows follow a clear pattern such as date, description, amount, and balance.</p>
+<h2>Standard Layouts</h2>
+<ul>
+<li>Date, description, amount, balance</li>
+<li>Date, description, withdrawal, deposit, balance</li>
+</ul>
+<h2>Custom Parser Cases</h2>
+<ul>
+<li>One transaction spans multiple lines.</li>
+<li>The PDF is scanned.</li>
+<li>The bank uses unusual columns.</li>
+<li>You need category mapping or bookkeeping software import formats.</li>
+<li>You need to process many monthly files in one batch.</li>
+</ul>
+<p>Start with a sanitized sample. Remove account numbers, addresses, and personal details before sharing.</p>
+<div class="card">
+<h2>Start With the Standard Tool</h2>
+<p>For text-based files, Bank Statement PDF to Excel may be enough. For unusual layouts, use it as a first test before custom work.</p>
+<a class="btn" href="https://bumblebee101.gumroad.com/l/bank-statement-pdf-to-excel">View on Gumroad</a>
+</div>
+<div class="footer">Do not use conversion tools to create, alter, or falsify financial documents.</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSV/Excel 자동화 스크립트</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #17202a;
+  background: #f7f8fa;
+  line-height: 1.6;
+}
+.top {
+  background: #ffffff;
+  border-bottom: 1px solid #dfe4ea;
+}
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.nav {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-size: 18px;
+  font-weight: 800;
+}
+.nav a {
+  color: #415063;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 16px;
+}
+.hero {
+  padding: 72px 0 52px;
+  background: #ffffff;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
+}
+.eyebrow {
+  color: #0b7a75;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+h1 {
+  font-size: 42px;
+  line-height: 1.18;
+  margin: 0 0 18px;
+  letter-spacing: 0;
+}
+.lead {
+  font-size: 18px;
+  color: #4d5c6d;
+  margin: 0 0 26px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.btn {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 6px;
+  border: 1px solid #0b7a75;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+.btn.primary {
+  color: #ffffff;
+  background: #0b7a75;
+}
+.btn.secondary {
+  color: #0b7a75;
+  background: #ffffff;
+}
+.note {
+  margin-top: 16px;
+  color: #6b7888;
+  font-size: 13px;
+}
+.terminal {
+  background: #15202b;
+  color: #dbeafe;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(23, 32, 42, 0.18);
+}
+.terminal-head {
+  background: #202c3a;
+  padding: 10px 14px;
+  color: #93a4b8;
+  font-size: 13px;
+}
+pre {
+  margin: 0;
+  padding: 18px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.55;
+}
+section {
+  padding: 50px 0;
+}
+h2 {
+  font-size: 26px;
+  margin: 0 0 20px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.product-card {
+  background: #ffffff;
+  border: 1px solid #dfe4ea;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #eef2f6;
+}
+.product-body {
+  padding: 18px;
+}
+.product-body h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+.product-body p {
+  margin: 0 0 14px;
+  color: #526173;
+  font-size: 14px;
+}
+.product-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.card {
+  background: #ffffff;
+  border: 1px solid #dfe4ea;
+  border-radius: 8px;
+  padding: 20px;
+}
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+.card p {
+  margin: 0;
+  color: #526173;
+  font-size: 14px;
+}
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.list li {
+  background: #ffffff;
+  border: 1px solid #dfe4ea;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.price {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+.price strong {
+  display: block;
+  font-size: 24px;
+  margin: 8px 0;
+}
+.steps {
+  counter-reset: step;
+}
+.step {
+  position: relative;
+  padding-left: 44px;
+  margin-bottom: 18px;
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0b7a75;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.footer {
+  padding: 28px 0;
+  border-top: 1px solid #dfe4ea;
+  color: #6b7888;
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .hero-grid, .grid-3, .product-grid, .price, .list {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+  .nav a {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <div class="brand">CSV/Excel 자동화</div>
+	    <nav>
+      <a href="#examples">예시</a>
+      <a href="#products">도구</a>
+      <a href="#guides">가이드</a>
+      <a href="#price">가격</a>
+      <a href="#process">진행 방식</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">반복 데이터 정리 업무 자동화</div>
+        <h1>매번 손으로 하는 CSV/Excel 정리 작업을 Python 스크립트로 줄입니다</h1>
+        <p class="lead">
+          여러 파일 합치기, 중복 제거, 특정 컬럼 추출, 조건 필터링, 파일명 변경,
+          월간 보고서 생성 같은 반복 작업을 작은 스크립트로 자동화합니다.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:jhbum01@gmail.com?subject=CSV%2FExcel%20%EC%9E%90%EB%8F%99%ED%99%94%20%EB%AC%B8%EC%9D%98">문의하기</a>
+          <a class="btn secondary" href="./intake_form.md">주문 전 질문 보기</a>
+        </div>
+        <div class="note">샘플 입력 파일과 원하는 결과 예시가 있으면 빠르게 판단할 수 있습니다.</div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-head">sample output</div>
+        <pre>order_id,customer_name,phone,total
+A001,Kim Hana,010-1234-5678,25000
+A002,Lee Min,010-2222-3333,18000
+A003,Park Jun,010-9999-8888,42000
+A004,Choi Ara,010-4444-5555,31000</pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="examples">
+    <div class="wrap">
+      <h2>가능한 작업 예시</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>CSV 정리</h3>
+          <p>여러 CSV 파일 병합, 중복 제거, 전화번호/날짜 형식 정리, 필요한 컬럼만 추출합니다.</p>
+        </div>
+        <div class="card">
+          <h3>파일명 일괄 변경</h3>
+          <p>날짜나 규칙을 기준으로 수십 개 이상의 파일명을 한 번에 정리합니다.</p>
+        </div>
+        <div class="card">
+          <h3>월간 보고서</h3>
+          <p>주문/매출 데이터를 월별로 합산해 보고서용 CSV 파일을 생성합니다.</p>
+        </div>
+      </div>
+    </div>
+	  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>판매 중인 자동화 도구</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="./assets/product_covers/shopify_csv_error_checker_cover.png" alt="Shopify CSV Error Checker">
+          <div class="product-body">
+            <h3>Shopify CSV Error Checker</h3>
+            <p>Shopify 상품 CSV를 업로드하기 전에 누락 컬럼, 가격, 재고, SKU, 이미지 URL 문제를 로컬에서 점검하는 Windows 앱입니다.</p>
+            <div class="product-actions">
+              <a class="btn primary" href="https://bumblebee101.gumroad.com/l/shopify-csv-error-checker">Gumroad</a>
+              <a class="btn secondary" href="https://payhip.com/b/qafWC">Payhip</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="./assets/product_covers/bank_statement_pdf_to_excel_cover.png" alt="Bank Statement PDF to Excel">
+          <div class="product-body">
+            <h3>Bank Statement PDF to Excel</h3>
+            <p>텍스트 기반 은행/카드 명세서 PDF, TXT, CSV를 Excel/CSV로 변환하는 로컬 Windows 앱입니다. 은행 로그인이나 파일 업로드가 없습니다.</p>
+            <div class="product-actions">
+              <a class="btn primary" href="https://bumblebee101.gumroad.com/l/bank-statement-pdf-to-excel">Gumroad</a>
+              <a class="btn secondary" href="https://payhip.com/b/1xKNe">Payhip</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="note">해외용 제품은 영어 UI와 영어 설명으로 판매 중이며, 맞춤 변환은 샘플 파일 확인 후 별도 견적입니다.</div>
+    </div>
+  </section>
+
+  <section id="guides">
+    <div class="wrap">
+      <h2>문제 해결 가이드</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>PDF를 Excel로 변환</h3>
+          <p>텍스트 기반 은행 명세서 PDF가 Excel로 변환 가능한지 확인하는 방법입니다.</p>
+          <p><a href="./articles/bank-statement-pdf-to-excel.html">읽기</a></p>
+        </div>
+        <div class="card">
+          <h3>변환 실패 원인</h3>
+          <p>스캔 PDF, 여러 줄 거래내역, 비밀번호 PDF처럼 실패가 잦은 원인을 정리했습니다.</p>
+          <p><a href="./articles/why-bank-statement-pdf-conversion-fails.html">읽기</a></p>
+        </div>
+        <div class="card">
+          <h3>로컬 변환 vs 온라인 업로드</h3>
+          <p>민감한 금융 파일을 온라인에 업로드하지 않고 처리해야 하는 경우를 설명합니다.</p>
+          <p><a href="./articles/local-pdf-to-excel-vs-online-upload.html">읽기</a></p>
+        </div>
+        <div class="card">
+          <h3>CSV 정리 체크리스트</h3>
+          <p>날짜, 입금, 출금, 잔액 컬럼을 점검하는 기본 체크리스트입니다.</p>
+          <p><a href="./articles/bank-statement-csv-cleanup-checklist.html">읽기</a></p>
+        </div>
+        <div class="card">
+          <h3>맞춤 파서가 필요한 경우</h3>
+          <p>표준 변환 도구로 부족하고 은행별 맞춤 파서가 필요한 상황을 정리했습니다.</p>
+          <p><a href="./articles/custom-bank-statement-parser.html">읽기</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	  <section>
+    <div class="wrap">
+      <h2>잘 맞는 요청</h2>
+      <ul class="list">
+        <li>입력 파일 형식이 매번 거의 같습니다</li>
+        <li>원하는 결과 예시를 설명할 수 있습니다</li>
+        <li>반복 작업을 매주 또는 매일 하고 있습니다</li>
+        <li>작은 Python 스크립트로 해결해도 괜찮습니다</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap">
+      <h2>가격 기준</h2>
+      <div class="price">
+        <div class="card">
+          <h3>단순 CSV 작업</h3>
+          <strong>30,000원부터</strong>
+          <p>합치기, 중복 제거, 컬럼 정리, 간단한 필터링.</p>
+        </div>
+        <div class="card">
+          <h3>Excel/보고서 작업</h3>
+          <strong>50,000원부터</strong>
+          <p>여러 시트, 월간 보고서, 조금 더 복잡한 출력 형식.</p>
+        </div>
+        <div class="card">
+          <h3>웹/API 자동화</h3>
+          <strong>별도 견적</strong>
+          <p>로그인, API, 브라우저 자동화, 정기 실행이 필요한 작업.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <h2>진행 방식</h2>
+      <div class="steps">
+        <div class="step">샘플 입력 파일과 원하는 결과 예시를 보내주세요.</div>
+        <div class="step">작업 범위와 가격을 확정합니다.</div>
+        <div class="step">Python 스크립트와 사용법을 작성합니다.</div>
+        <div class="step">샘플 파일 기준으로 테스트한 결과를 함께 납품합니다.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    로그인 우회, CAPTCHA 우회, 스팸, 불법 scraping, 민감정보 처리는 받지 않습니다.
+  </div>
+</footer>
+</body>
+</html>

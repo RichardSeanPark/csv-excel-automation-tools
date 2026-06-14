@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Bank Statement PDF Conversion Fails</title>
+<meta name="description" content="Common reasons bank statement PDFs fail to convert cleanly, including scanned PDFs, multi-line transactions, password protection, and inconsistent columns.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}.wrap{max-width:860px;margin:0 auto;padding:34px 20px}.top{background:#fff;border-bottom:1px solid #dfe4ea}a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">Troubleshooting guide</p>
+<h1>Why Bank Statement PDF Conversion Fails</h1>
+<p>Bank statement conversion usually fails because the file is designed for human reading, not structured data extraction.</p>
+<h2>Common Reasons</h2>
+<ol>
+<li>The PDF is scanned, so there is no selectable text.</li>
+<li>The PDF is password-protected.</li>
+<li>One transaction wraps across multiple lines.</li>
+<li>Debit and credit columns are not clearly separated.</li>
+<li>The statement includes headers, footers, and notes between transaction rows.</li>
+</ol>
+<h2>What a Good Converter Should Do</h2>
+<p>A good converter should not silently guess every row. It should create a rejected-lines file so you can review rows that were not confidently parsed.</p>
+<div class="card">
+<h2>Try a Local Converter</h2>
+<p>If your PDF is text-selectable, Bank Statement PDF to Excel may be enough. It creates Excel, CSV, rejected-lines, and summary files locally.</p>
+<a class="btn" href="https://bumblebee101.gumroad.com/l/bank-statement-pdf-to-excel">View on Gumroad</a>
+</div>
+<div class="footer">Avoid sharing full bank statements publicly. Use sanitized samples for custom work.</div>
+</main>
+</body>
+</html>
