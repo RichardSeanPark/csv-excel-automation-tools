@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Send Shopify Orders to Google Sheets</title>
+<meta name="description" content="A practical guide to moving Shopify order, product, or inventory data into Google Sheets without daily copy-paste.">
+<style>
+body{margin:0;font-family:Arial,sans-serif;color:#17202a;background:#f7f8fa;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:34px 20px}.top{background:#fff;border-bottom:1px solid #dfe4ea}
+a{color:#0b7a75;font-weight:700}h1{font-size:38px;line-height:1.18;margin:18px 0}h2{margin-top:34px}
+.card{background:#fff;border:1px solid #dfe4ea;border-radius:8px;padding:20px;margin:20px 0}.btn{display:inline-flex;min-height:44px;align-items:center;padding:0 18px;border-radius:6px;background:#0b7a75;color:#fff;text-decoration:none}.muted{color:#64748b}.footer{border-top:1px solid #dfe4ea;margin-top:40px;padding-top:20px;color:#64748b;font-size:14px}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="../index.html">CSV/Excel Automation</a></div></header>
+<main class="wrap">
+<p class="muted">Shopify automation guide</p>
+<h1>How to Send Shopify Orders to Google Sheets</h1>
+<p>If you only need data once, Shopify's built-in CSV export is usually enough. The problem starts when you copy orders, products, or inventory into a spreadsheet every day or every week.</p>
+<h2>Common Options</h2>
+<ul>
+<li><strong>Manual CSV export:</strong> best for one-off reporting.</li>
+<li><strong>Zapier or Make:</strong> good when you want a no-code new-order-to-row workflow.</li>
+<li><strong>n8n:</strong> useful when you want more control and lower ongoing task cost.</li>
+<li><strong>Custom webhook/API script:</strong> best when you need exact fields, custom cleanup, or no monthly automation platform cost.</li>
+</ul>
+<h2>Fields to Decide First</h2>
+<p>Before building the automation, write down the columns you actually need. A clean first version may include:</p>
+<ul>
+<li>Order date</li>
+<li>Order number</li>
+<li>Customer name or anonymized customer ID</li>
+<li>Product title</li>
+<li>SKU</li>
+<li>Quantity</li>
+<li>Total</li>
+<li>Fulfillment status</li>
+</ul>
+<h2>A Safe First Workflow</h2>
+<ol>
+<li>Export a small sample CSV from Shopify.</li>
+<li>Build the destination Google Sheet columns.</li>
+<li>Map only the fields you need.</li>
+<li>Add duplicate protection using the Shopify order ID.</li>
+<li>Test with a small batch before turning on scheduled or live sync.</li>
+</ol>
+<h2>When a Custom Setup Helps</h2>
+<p>A custom setup is useful when you need field cleanup, SKU normalization, custom monthly reports, Telegram/email alerts, or a workflow that does not fit a standard connector.</p>
+<div class="card">
+<h2>Need a Small Custom Workflow?</h2>
+<p>I build small CSV, Google Sheets, Shopify, and automation workflows from written requirements and sample files. No call is required for a simple scoped task.</p>
+<a class="btn" href="mailto:jhbum01@gmail.com?subject=Shopify%20orders%20to%20Google%20Sheets%20automation">Ask by Email</a>
+</div>
+<div class="footer">Do not share private customer data publicly. Use sanitized samples when asking for help.</div>
+</main>
+</body>
+</html>
